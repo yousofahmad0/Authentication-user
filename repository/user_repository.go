@@ -60,12 +60,12 @@ func (s UserRepository) Update(id int, u *entity.User) *entity.User {
 	if err := s.DB.First(&user, id).Error; err != nil {
 		return nil
 	}
-	if u.FirstName == "" || u.LastName == "" {
+	if u.Firstname == "" || u.Lastname == "" {
 		return nil
 	}
 
-	user.FirstName = u.FirstName
-	user.LastName = u.LastName
+	user.Firstname = u.Firstname
+	user.Lastname = u.Lastname
 	s.DB.Save(user)
 	return user
 }
@@ -78,11 +78,11 @@ func (s UserRepository) Patch(id int, u *entity.User) *entity.User {
 		return nil
 	}
 
-	if u.FirstName != "" {
-		user.FirstName = u.FirstName
+	if u.Firstname != "" {
+		user.Firstname = u.Firstname
 	}
-	if u.LastName != "" {
-		user.LastName = u.LastName
+	if u.Lastname != "" {
+		user.Lastname = u.Lastname
 	}
 	s.DB.Save(user)
 	return user

@@ -1,13 +1,12 @@
 package entity
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Token struct {
-	UserId      uint      `json:"user_id"`
-	Token       string    `json:"token"`
-	ActivatedAt time.Time `json:"activated_at"`
-	ExpiredAt   time.Time `json:"expired_at"`
-	Type        string    `json:"type"`
+	gorm.Model
+	Expires_at int64
+	UserId     uint
+	Token      string
 }

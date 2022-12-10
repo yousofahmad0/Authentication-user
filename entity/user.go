@@ -1,18 +1,19 @@
 package entity
 
 import (
-	"database/sql"
 	"gorm.io/gorm"
 )
 
 type User struct {
 	gorm.Model
-	FirstName         string `json:"firstname"`
-	LastName          string `json:"lastname"`
-	Email             string `json:"email"`
-	Username          string `json:"username"`
-	PasswordHash      string
+	Firstname         string `json:"firstname"`
+	Lastname          string `json:"lastname"`
+	Email             string `gorm:"unique""`
+	Username          string `gorm:"unique""`
 	Verification_code string
-	verified          bool
-	Nationality       sql.NullString `json:"nationality"`
+	Verified          bool
+	//optional fields
+	Phone_number string
+	Nationality  string
+	Password     string
 }
