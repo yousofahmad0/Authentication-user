@@ -12,7 +12,7 @@ import (
 
 func Send(code int, username string) {
 	address := mail.NewMSG()
-	address.SetFrom("Survivor Coders <yousofahmad81@gmail.com>")
+	address.SetFrom("Survivor Coders <narjeswehbi04@gmail.com>")
 	address.AddTo(username)
 	address.SetSubject("Verify your email")
 	b, e := os.ReadFile("msg.html")
